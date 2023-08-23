@@ -1,0 +1,11 @@
+version: '3'
+services:
+    php-fpm:
+        build: .docker
+        restart: always
+        working_dir: /var/www/
+        volumes:
+            - ./.docker/conf/php/php.ini:/usr/local/etc/php/conf.d/php.ini
+            - .:/var/www
+        env_file:
+            - .env
